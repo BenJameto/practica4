@@ -38,11 +38,10 @@ public class Spaceship {
 
     @Override
     public String toString() {
-        return "Spaceship{" +
-                "propulsionSystem=" + propulsionSystem +
-                ", armor=" + armor +
-                ", cockpit=" + cockpit +
-                ", weapon=" + weapon +
-                '}';
+        return "Spaceship \n" +
+                "propulsionSystem: " + propulsionSystem + "\n"+
+                "armor: " + armor + "\n"+
+                "cockpit: " + cockpit + "\n"+
+                "weapon: " + weapon + "\n";
     }
 }
