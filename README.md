@@ -3,12 +3,19 @@
 
 ## Integrantes
 
-@axlducloux || Hurtado Ducloux Axel - 316309132
+@axlducloux || Ducloux Hurtado Axel - 316309132
 
-@Benjameto || Martínez OSorio Benjamin 312063678
+@Benjameto || Martínez Osorio Benjamin 312063678
 
 @Clausyari || Osorio López Claudia Yarinet 316256098
 
+##
+
+Para probar esta practica:
+> javac GalacticEmpire.java
+
+
+> java GalacticEmpire
 
 ## ¿Cómo se elaboró?
 Usamos GitHub como medio de integracion.
