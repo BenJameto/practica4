@@ -2,9 +2,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Clase principal que permite al usuario diseñar y construir naves espaciales dentro del universo del Imperio Galáctico.
+ */
 public class GalacticEmpire {
     private static Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Método principal que inicia la interacción con el usuario.
+     * @param args Argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         System.out.print("Ingresa tu presupuesto: ");
         double budget = scanner.nextDouble();
@@ -36,6 +43,9 @@ public class GalacticEmpire {
         }
     }
 
+    /**
+     * Muestra los componentes disponibles para la construcción de naves espaciales.
+     */
     private static void showAvailableComponents() {
         System.out.println("Componentes disponibles:");
 
@@ -76,6 +86,10 @@ public class GalacticEmpire {
         }
     }
 
+    /**
+     * Obtiene las preferencias del usuario para la construcción de la nave.
+     * @return Preferencias del usuario.
+     */
     private static UserPreferences getUserPreferences() {
         UserPreferences userPreferences = new UserPreferences();
 
@@ -102,11 +116,22 @@ public class GalacticEmpire {
         return userPreferences;
     }
 
+    /**
+     * Determina el constructor adecuado según las preferencias del usuario.
+     * @param preferences Preferencias del usuario.
+     * @return Constructor de naves espaciales.
+     */
     private static SpaceshipBuilder determineBuilder(UserPreferences preferences) {
         // Determinar el builder adecuado según las preferencias del usuario
         return new IndividualCombatShipBuilder();
     }
 
+    /**
+     * Construye la nave espacial según las preferencias del usuario.
+     * @param builder Constructor de naves espaciales.
+     * @param preferences Preferencias del usuario.
+     * @return Nave espacial construida.
+     */
     private static Spaceship buildSpaceship(SpaceshipBuilder builder, UserPreferences preferences) {
         // Construir la nave espacial según las preferencias del usuario
         return builder
@@ -117,6 +142,11 @@ public class GalacticEmpire {
                 .build();
     }
 
+    /**
+     * Calcula el costo total de la nave espacial.
+     * @param spaceship Nave espacial.
+     * @return Costo total de la nave espacial.
+     */
     private static double calculateCost(Spaceship spaceship) {
         // Calcular el costo total de la nave espacial
         return spaceship.getPropulsionSystem().getPrice() +
@@ -125,8 +155,11 @@ public class GalacticEmpire {
                 spaceship.getWeapon().getPrice();
     }
 
+    /**
+     * Muestra el catálogo de naves predefinidas y permite al usuario seleccionar una.
+     */
     private static void showCatalog() {
-        System.out.println("Catálogo de naves predefinidas:");
+                System.out.println("Catálogo de naves predefinidas:");
         System.out.println("1. Nave individual de combate");
         System.out.println("2. Nave militar de transporte");
         System.out.println("3. Base espacial de guerra");
@@ -155,6 +188,14 @@ public class GalacticEmpire {
         System.out.println(selectedSpaceship);
     }
 
+    /**
+     * Obtiene un componente espacial específico por su índice en la lista.
+     * @param index Índice del componente.
+     * @param componentType Tipo de componente.
+     * @param <T> Tipo genérico.
+     * @return Componente espacial seleccionado.
+     */
+    @SuppressWarnings("unchecked")
     private static <T> T getComponentByIndex(int index, String componentType) {
         switch (componentType) {
             case "PropulsionSystem":
@@ -188,6 +229,10 @@ public class GalacticEmpire {
         }
     }
 
+    /**
+     * Construye una nave individual de combate.
+     * @return Nave individual de combate construida.
+     */
     private static Spaceship buildIndividualCombatShip() {
         SpaceshipBuilder builder = new IndividualCombatShipBuilder();
         return builder
@@ -199,6 +244,10 @@ public class GalacticEmpire {
                 .build();
     }
 
+    /**
+     * Construye una nave militar de transporte.
+     * @return Nave militar de transporte construida.
+     */
     private static Spaceship buildMilitaryTransportShip() {
         SpaceshipBuilder builder = new MilitaryTransportShipBuilder();
         return builder
@@ -210,6 +259,10 @@ public class GalacticEmpire {
                 .build();
     }
 
+    /**
+     * Construye una base espacial de guerra.
+     * @return Base espacial de guerra construida.
+     */
     private static Spaceship buildWarSpaceStation() {
         SpaceshipBuilder builder = new WarSpaceStationBuilder();
         return builder
@@ -221,3 +274,5 @@ public class GalacticEmpire {
                 .build();
     }
 }
+
+
